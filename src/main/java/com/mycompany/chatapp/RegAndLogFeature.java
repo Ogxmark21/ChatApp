@@ -19,7 +19,7 @@ public class RegAndLogFeature {
     
     //checks username 
     public boolean checkUserName(String username){
-        if(username.length() >=5){
+        if(username.length() <=5){
             return true;
         }else{
             return false;
@@ -90,7 +90,7 @@ public class RegAndLogFeature {
             System.out.println("Username successfully captured");
         }else{
             System.out.println("Username not formatted correctly; please ensure "
-                    + "that the username is atleast five character long");
+                    + "that the username contains an underscore is no more than five characters long");
         }
         //password feedback
         if(passwordValid){

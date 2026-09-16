@@ -35,16 +35,16 @@ public class ChatAppTest {
     }//checkUserName
     @Test
     public void testCheckUserName_Valid(){
-        assertTrue(app.checkUserName("Thabani"));
+        assertTrue(app.checkUserName("Thab"));
     }
     @Test
     public void testCheckUserName_Invalid(){
-        assertFalse(app.checkUserName("Tha"));
+        assertFalse(app.checkUserName("Thabani"));
     }
     @Test
     public void testCheckUserName_BoundaryLenth(){
-        //exactly 5 characters should be valid
-        assertTrue(app.checkUserName("Thabani"));
+        //exactly 5 characters or less should be valid
+        assertTrue(app.checkUserName("Thabs"));
     }
     //Check PasswordComplexity
     @Test
@@ -80,12 +80,12 @@ public class ChatAppTest {
     //RegisterUser
     @Test
     public void testCheckRegisterUser_Success(){
-        String simulatedInput = "Thabani\nOgxmark21\n0722575148\n";
+        String simulatedInput = "Thab\nOgxmark21\n0722575148\n";
         Scanner scanner = new Scanner(new ByteArrayInputStream(simulatedInput.getBytes()));
         assertTrue(app.registerUser(scanner));
     }
     public void testCheckRegisterUser_Failure_InvalidInput(){
-        String simulatedInput = "Tha\nOgxmark21\n0722575148\n";
+        String simulatedInput = "Thabani\nOgxmark21\n0722575148\n";
         Scanner scanner = new Scanner(new ByteArrayInputStream(simulatedInput.getBytes()));
         assertFalse(app.registerUser(scanner));
         
@@ -93,28 +93,28 @@ public class ChatAppTest {
     //loginUser
     @Test
     public void testloginUser_Success(){
-        String regInput = "Thabani\nOgxmark21\n0722575148\n";
+        String regInput = "Thab\nOgxmark21\n0722575148\n";
         app.registerUser(new Scanner(new ByteArrayInputStream(regInput.getBytes())));
         
         ByteArrayOutputStream outContent= new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outContent));
         
-        String loginInput = "Thabani\nOgxmark21\n";
+        String loginInput = "Thab\nOgxmark21\n";
         app.loginUser(new Scanner(new ByteArrayInputStream(loginInput.getBytes())));
         System.setOut(originalout);
         assertTrue(toString().contains("nice to see you again"));
     }
     @Test
     public void testloginUser_WrongPassword(){
-        String regInput = "Thabani\nOgxmark21\n0722575148\n";
+        String regInput = "Thab\nOgxmark21\n0722575148\n";
         app.registerUser(new Scanner(new ByteArrayInputStream(regInput.getBytes())));
         
         ByteArrayOutputStream outContent= new ByteArrayOutputStream();
         PrintStream originalOut = System.out;
         System.setOut(new PrintStream(outContent));
         
-        String loginInput = "Thabani\nWrongmark1\n0722575148\n";
+        String loginInput = "Thab\nWrongmark1\n0722575148\n";
         app.loginUser(new Scanner(new ByteArrayInputStream(loginInput.getBytes())));
         System.setOut(originalout);
         assertTrue(toString().contains("incorrect"));
