@@ -17,35 +17,22 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class ChatAppTest {
     
-    public ChatAppTest() {
-    }
+    private RegAndLogFeature app; 
     
-    @BeforeAll
-    public static void setUpClass() {
-    }
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
     
     @BeforeEach
     public void setUp() {
+        app = new RegAndLogFeature();   
+    }
+    @Test
+    public void testCheckUserName_Valid(){
+        assertTrue(app.checkUserName("johndoe"));
     }
     
-    @AfterEach
-    public void tearDown() {
+    @Test
+    public void testCheckCellPhoneNumber_wrongLength(){
+        assertFalse(app.checkCellPhoneNumber("072257514"));
     }
 
-    /**
-     * Test of main method, of class ChatApp.
-     */
-    @Test
-    public void testMain() {
-        System.out.println("main");
-        String[] args = null;
-        ChatApp.main(args);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
     
 }

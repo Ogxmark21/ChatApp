@@ -15,34 +15,6 @@ import java.util.Scanner;
  */
 public class ChatApp {
 
-    public static void main(String[] args){
-        Scanner input = new Scanner(System.in);
-        RegAndLogFeature app = new RegAndLogFeature();
-        
-        boolean running = true;
-        while(running){
-            System.out.println("\n==== Menu ====");
-            System.out.println("1. Register a new account");
-            System.out.println("2. Login");
-            System.out.println("3. Exit");
-            System.out.println("Choose an option from (1-3)");
-            
-            String choice = input.nextLine();
-            
-            if(choice.equals("1")){
-                app.registerUser(input);
-            }else if(choice.equals("2")){
-                app.loginUser(input);
-            }else if(choice.equals("3")){
-                System.out.println("Goodbye!!");
-                running = false;
-            }else{
-                System.out.println("Invalid option, Please choose 1,2 or 3");
-            }
-        }
-        input.close();
-    }
-
     private static class RegistrationLogin {
         private static Map<String, String> users = new HashMap<>();
 
