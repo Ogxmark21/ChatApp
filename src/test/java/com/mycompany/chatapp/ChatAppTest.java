@@ -10,6 +10,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.io.ByteArrayInputStream;
 import java.util.Scanner;
@@ -26,7 +28,7 @@ import java.io.PrintStream;
 public class ChatAppTest {
     
     private RegAndLogFeature app; 
-    private PrintStream originalout;
+    
     
     
     @BeforeEach
@@ -102,8 +104,8 @@ public class ChatAppTest {
         
         String loginInput = "Thab\nOgxmark21\n";
         app.loginUser(new Scanner(new ByteArrayInputStream(loginInput.getBytes())));
-        System.setOut(originalout);
-        assertTrue(toString().contains("nice to see you again"));
+        System.setOut(originalOut);
+        assertTrue(outContent.toString().contains("nice to see you again"));
     }
     @Test
     public void testloginUser_WrongPassword(){
@@ -116,15 +118,13 @@ public class ChatAppTest {
         
         String loginInput = "Thab\nWrongmark1\n0722575148\n";
         app.loginUser(new Scanner(new ByteArrayInputStream(loginInput.getBytes())));
-        System.setOut(originalout);
-        assertTrue(toString().contains("incorrect"));
+        System.setOut(originalOut);
+        assertTrue(outContent.toString().contains("incorrect"));
         
         
     }
 
-    private void assertTrue(boolean contains) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
     
     
     

@@ -144,7 +144,7 @@ public class RegAndLogFeature {
 
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
-        RegistrationLogin app = new RegistrationLogin();
+        RegAndLogFeature app = new RegAndLogFeature();
         
         boolean running = true;
         while(running){
@@ -159,7 +159,7 @@ public class RegAndLogFeature {
             if(choice.equals("1")){
                 app.registerUser(input);
             }else if(choice.equals("2")){
-                app.LoginUser(input);
+                app.loginUser(input);
             }else if(choice.equals("3")){
                 System.out.println("Goodbye!!");
                 running = false;
