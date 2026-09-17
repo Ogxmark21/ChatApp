@@ -71,7 +71,7 @@ public class RegAndLogFeature {
 
    //registration method
     public boolean registerUser(Scanner input){
-        System.out.println("\n====Account Registartion====");
+        System.out.println("\n====Account Registration====");
         System.out.println("Enter a username");
         String username = input.nextLine();
         
