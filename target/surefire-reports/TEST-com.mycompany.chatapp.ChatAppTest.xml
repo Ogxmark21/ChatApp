@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.mycompany.chatapp.ChatAppTest" time="0.105" tests="13" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.mycompany.chatapp.ChatAppTest" time="0.124" tests="14" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="25"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Apache NetBeans\jdk\bin"/>
-    <property name="sun.java.command" value="C:\Users\Student\AppData\Local\Temp\surefire16975392256708652197\surefirebooter-20260917080847262_3.jar C:\Users\Student\AppData\Local\Temp\surefire16975392256708652197 2026-09-17T08-08-47_108-jvmRun1 surefire-20260917080847262_1tmp surefire_0-20260917080847262_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\Student\AppData\Local\Temp\surefire4715897499697761226\surefirebooter-20260917103446696_3.jar C:\Users\Student\AppData\Local\Temp\surefire4715897499697761226 2026-09-17T10-34-45_714-jvmRun1 surefire-20260917103446696_1tmp surefire_0-20260917103446696_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="test" value="com.mycompany.chatapp.ChatAppTest"/>
     <property name="surefire.test.class.path" value="C:\Users\Student\Documents\NetBeansProjects\ChatApp\target\test-classes;C:\Users\Student\Documents\NetBeansProjects\ChatApp\target\classes;C:\Users\Student\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.3\junit-jupiter-api-5.10.3.jar;C:\Users\Student\.m2\repository\org\junit\platform\junit-platform-commons\1.10.3\junit-platform-commons-1.10.3.jar;C:\Users\Student\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Student\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.3\junit-jupiter-params-5.10.3.jar;C:\Users\Student\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.3\junit-jupiter-engine-5.10.3.jar;C:\Users\Student\.m2\repository\org\junit\platform\junit-platform-engine\1.10.3\junit-platform-engine-1.10.3.jar;C:\Users\Student\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Student\AppData\Local\Temp\surefire16975392256708652197\surefirebooter-20260917080847262_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Student\AppData\Local\Temp\surefire4715897499697761226\surefirebooter-20260917103446696_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="25.0.1+8-LTS"/>
@@ -62,10 +62,10 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="69.0"/>
   </properties>
-  <testcase name="testCheckCellPhoneNumber_ContainsNonDigit" classname="com.mycompany.chatapp.ChatAppTest" time="0.026"/>
+  <testcase name="testCheckCellPhoneNumber_ContainsNonDigit" classname="com.mycompany.chatapp.ChatAppTest" time="0.029"/>
   <testcase name="testloginUser_WrongPassword" classname="com.mycompany.chatapp.ChatAppTest" time="0.008">
     <system-out><![CDATA[
-====Account Registartion====
+====Account Registration====
 Enter a username
 Enter a password
 Enter your South African cell phone number
@@ -76,13 +76,13 @@ Cellphone number successfully captured
 User Thab Successfully registered
 ]]></system-out>
   </testcase>
-  <testcase name="testCheckPasswordComplexity_Invalid_NoUpperCase" classname="com.mycompany.chatapp.ChatAppTest" time="0.005"/>
+  <testcase name="testCheckPasswordComplexity_Invalid_NoUpperCase" classname="com.mycompany.chatapp.ChatAppTest" time="0.002"/>
   <testcase name="testCheckCellPhoneNumber_wrongLength" classname="com.mycompany.chatapp.ChatAppTest" time="0.002"/>
-  <testcase name="testCheckPasswordComplexity_Invalid_Too_Short" classname="com.mycompany.chatapp.ChatAppTest" time="0.001"/>
+  <testcase name="testCheckPasswordComplexity_Invalid_Too_Short" classname="com.mycompany.chatapp.ChatAppTest" time="0.002"/>
   <testcase name="testCheckCellPhoneNumber_Valid" classname="com.mycompany.chatapp.ChatAppTest" time="0.001"/>
   <testcase name="testloginUser_Success" classname="com.mycompany.chatapp.ChatAppTest" time="0.002">
     <system-out><![CDATA[
-====Account Registartion====
+====Account Registration====
 Enter a username
 Enter a password
 Enter your South African cell phone number
@@ -93,10 +93,10 @@ Cellphone number successfully captured
 User Thab Successfully registered
 ]]></system-out>
   </testcase>
-  <testcase name="testCheckPasswordComplexity_Valid" classname="com.mycompany.chatapp.ChatAppTest" time="0.009"/>
+  <testcase name="testCheckPasswordComplexity_Valid" classname="com.mycompany.chatapp.ChatAppTest" time="0.003"/>
   <testcase name="testCheckRegisterUser_Success" classname="com.mycompany.chatapp.ChatAppTest" time="0.002">
     <system-out><![CDATA[
-====Account Registartion====
+====Account Registration====
 Enter a username
 Enter a password
 Enter your South African cell phone number
@@ -107,8 +107,21 @@ Cellphone number successfully captured
 User Thab Successfully registered
 ]]></system-out>
   </testcase>
-  <testcase name="testCheckCellPhoneNumber_DoesNotStartWithZero" classname="com.mycompany.chatapp.ChatAppTest" time="0.0"/>
-  <testcase name="testCheckUserName_Invalid" classname="com.mycompany.chatapp.ChatAppTest" time="0.003"/>
-  <testcase name="testCheckUserName_BoundaryLenth" classname="com.mycompany.chatapp.ChatAppTest" time="0.001"/>
+  <testcase name="testCheckCellPhoneNumber_DoesNotStartWithZero" classname="com.mycompany.chatapp.ChatAppTest" time="0.002"/>
+  <testcase name="testCheckUserName_Invalid" classname="com.mycompany.chatapp.ChatAppTest" time="0.002"/>
+  <testcase name="testCheckRegisterUser_Failure_InvalidInput" classname="com.mycompany.chatapp.ChatAppTest" time="0.001">
+    <system-out><![CDATA[
+====Account Registration====
+Enter a username
+Enter a password
+Enter your South African cell phone number
+Username not formatted correctly; please ensure that the username contains an underscore is no more than five characters long
+Password successfully captured
+Cellphone number successfully captured
+
+Registration failed. Please revisit the messages above and try again.
+]]></system-out>
+  </testcase>
+  <testcase name="testCheckUserName_BoundaryLenth" classname="com.mycompany.chatapp.ChatAppTest" time="0.003"/>
   <testcase name="testCheckUserName_Valid" classname="com.mycompany.chatapp.ChatAppTest" time="0.001"/>
 </testsuite>

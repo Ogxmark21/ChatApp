@@ -86,6 +86,7 @@ public class ChatAppTest {
         Scanner scanner = new Scanner(new ByteArrayInputStream(simulatedInput.getBytes()));
         assertTrue(app.registerUser(scanner));
     }
+    @Test
     public void testCheckRegisterUser_Failure_InvalidInput(){
         String simulatedInput = "Thabani\nOgxmark21\n0722575148\n";
         Scanner scanner = new Scanner(new ByteArrayInputStream(simulatedInput.getBytes()));
