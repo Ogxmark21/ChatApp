@@ -52,7 +52,9 @@ public class QuickChat {
                     System.out.println("Total number of messages sent: " + Message.returnTotalMessages());
                     break;
                 case 2:
-                    System.out.println("Coming Soon.");
+                    System.out.println("\n==== Recently Sent Messages ====");
+                    System.out.println(Message.printMessages());
+                    System.out.println("Total messages sent: " + Message.returnTotalMessages());
                     break;
                 case 3:
                     System.out.println("Goodbye!");
