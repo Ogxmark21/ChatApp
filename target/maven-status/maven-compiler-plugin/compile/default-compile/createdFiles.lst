@@ -1,3 +1,9 @@
+com\mycompany\chatapp\Message.class
+com\mycompany\chatapp\RegAndLogFeature$RegistrationLogin.class
+com\mycompany\chatapp\RegAndLogFeature.class
+com\mycompany\chatapp\QuickChat.class
+com\mycompany\chatapp\RANDOM.class
+com\mycompany\chatapp\sentMessage.class
 com\mycompany\chatapp\ChatApp$RegistrationLogin.class
 com\mycompany\chatapp\IOexception.class
 com\mycompany\chatapp\ChatApp.class
