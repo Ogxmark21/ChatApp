@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
+
 package com.mycompany.chatapp;
 
 import java.io.FileWriter;
@@ -15,9 +16,10 @@ public class Message {
 
     private static final List<Message> sentMessages = new ArrayList<>();
     private static final List<Message> storedMessages = new ArrayList<>();
-    private static int totalSent = 0;
-    private static final String STORE_FILE = "storedMessages.json";
     private static final Random RANDOM = new Random();
+    private static int totalSent = 0;
+
+    private static final String STORE_FILE = "storedMessages.json";
 
     private final String messageID;
     private final int messageNumber;
@@ -25,6 +27,7 @@ public class Message {
     private final String text;
     private final String messageHash;
 
+    // Constructor used by your existing tests and QuickChat
     public Message(String messageID, int messageNumber,
                    String recipient, String text) {
         this.messageID = messageID;
@@ -34,8 +37,14 @@ public class Message {
         this.messageHash = createMessageHash();
     }
 
+    // Constructor expected by MessageTest
+    public Message(int messageNumber, String recipient, String text) {
+        this(generateMessageID(), messageNumber, recipient, text);
+    }
+
     public boolean checkMessageID() {
-        return messageID != null && messageID.length() <= 10;
+        return messageID != null
+                && messageID.matches("\\d{1,10}");
     }
 
     public String checkRecipientCell() {
@@ -43,12 +52,19 @@ public class Message {
     }
 
     public String createMessageHash() {
-        String[] words = text.trim().split("\\s+");
+        String firstTwo = messageID == null
+                ? ""
+                : messageID.substring(0, Math.min(2, messageID.length()));
 
-        String firstWord = cleanWord(words[0]);
-        String lastWord = cleanWord(words[words.length - 1]);
-        String firstTwo = messageID.substring(
-                0, Math.min(2, messageID.length()));
+        String firstWord = "";
+        String lastWord = "";
+
+        if (text != null && !text.trim().isEmpty()) {
+            String[] words = text.trim().split("\\s+");
+
+            firstWord = cleanWord(words[0]);
+            lastWord = cleanWord(words[words.length - 1]);
+        }
 
         return (firstTwo + ":" + messageNumber + ":"
                 + firstWord + lastWord).toUpperCase();
@@ -62,7 +78,7 @@ public class Message {
                 return "Message successfully sent.";
 
             case 2:
-                return "Message disregarded.";
+                return "Press 0 to delete the message.";
 
             case 3:
                 try {
@@ -86,13 +102,13 @@ public class Message {
 
         for (Message message : sentMessages) {
             output.append(message.details())
-                  .append(System.lineSeparator());
+                    .append(System.lineSeparator());
         }
 
         return output.toString();
     }
 
-    public static List<String> returnAllMessageHash() {
+    public static List<String> returnAllMessageHashes() {
         List<String> hashes = new ArrayList<>();
 
         for (Message message : sentMessages) {
@@ -100,6 +116,11 @@ public class Message {
         }
 
         return hashes;
+    }
+
+    // Keep the singular method name for compatibility
+    public static List<String> returnAllMessageHash() {
+        return returnAllMessageHashes();
     }
 
     public static int returnTotalMessages() {
@@ -146,14 +167,13 @@ public class Message {
             return "Message cannot be empty.";
         }
 
-        int length = text.length();
-
-        if (length <= 250) {
+        if (text.length() <= 250) {
             return "Message ready to send.";
         }
 
         return "Message exceeds 250 characters by "
-                + (length - 250) + "; please reduce the size.";
+                + (text.length() - 250)
+                + "; please reduce the size.";
     }
 
     public static String validateRecipient(String number) {
@@ -168,8 +188,8 @@ public class Message {
     }
 
     public static String generateMessageID() {
-        long n = RANDOM.nextLong(10_000_000_000L);
-        return String.format("%010d", n);
+        return String.format("%010d",
+                RANDOM.nextLong(10_000_000_000L));
     }
 
     public String details() {
@@ -205,12 +225,17 @@ public class Message {
         return word.replaceAll("[^A-Za-z0-9]", "");
     }
 
-    private static String escape(String s) {
-        return s.replace("\\", "\\\\")
+    private static String escape(String value) {
+        if (value == null) {
+            return "";
+        }
+
+        return value.replace("\\", "\\\\")
                 .replace("\"", "\\\"")
                 .replace("\n", "\\n")
                 .replace("\r", "\\r");
     }
 }
+
    
   
