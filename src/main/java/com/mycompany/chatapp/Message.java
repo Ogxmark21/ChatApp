@@ -102,13 +102,12 @@ public class Message {
 
         case 2:
             recordMessage(FLAG_DISREGARD);
-            return "Message disregarded.";
+            return "Press 0 to delete the message.";
 
         case 3:
             try {
                 storeMessage();
                 recordMessage(FLAG_STORED);
-                readStoredMessagesFromJson();
                 return "Message successfully stored.";
             } catch (IOException e) {
                 return "Unable to store message: " + e.getMessage();
@@ -246,10 +245,21 @@ public class Message {
     }
 
     static void clearAll() {
-        sentMessages.clear();
-        storedMessages.clear();
-        totalSent = 0;
-    }
+    sentMessages.clear();
+    storedMessages.clear();
+
+    sentMessageTexts.clear();
+    disregardedMessageTexts.clear();
+    storedMessageTexts.clear();
+
+    messageHashArray.clear();
+    messageIDArray.clear();
+    recipientArray.clear();
+    messageTextArray.clear();
+    flagArray.clear();
+
+    totalSent = 0;
+}
 
     private static String cleanWord(String word) {
         return word.replaceAll("[^A-Za-z0-9]", "");
@@ -290,31 +300,53 @@ public class Message {
 
     /** Populates all the arrays from the test data in the task (no hard-coding of the arrays). */
     public static void loadTestData() {
-        // { recipient, message, flag, messageID (blank = generate one) }
-        String[][] testData = {
-            {"+27834557896", "Did you get the cake?", "Sent", ""},
-            {"+27838884567", "Where are you? You are late! I have asked you to be on time.", "Stored", ""},
-            {"+27834484567", "Yoohoooo, I am at your gate.", "Disregard", ""},
-            {"0838884567", "It is dinner time!", "Sent", "0838884567"},
-            {"+27838884567", "Ok, I am leaving without you.", "Stored", ""}
-        };
 
-        for (int i = 0; i < testData.length; i++) {
-            String id = testData[i][3].isEmpty() ? generateMessageID() : testData[i][3];
-            Message m = new Message(id, i + 1, testData[i][0], testData[i][1]);
+    // Start with fresh message collections
+    clearAll();
 
-            String flag = testData[i][2];
-            if (flag.equalsIgnoreCase(FLAG_SENT)) {
-                m.sentMessage(1);
-            } else if (flag.equalsIgnoreCase(FLAG_DISREGARD)) {
-                m.sentMessage(2);
-            } else {
-                m.sentMessage(3);
-            }
+    String[][] testData = {
+        {"+27834557896", "Did you get the cake?", "Sent", ""},
+        {"+27838884567", "Where are you? You are late! I have asked you to be on time.", "Stored", ""},
+        {"+27834484567", "Yoohoooo, I am at your gate.", "Disregard", ""},
+        {"0838884567", "It is dinner time!", "Sent", "0838884567"},
+        {"+27838884567", "Ok, I am leaving without you.", "Stored", ""}
+    };
+
+    for (int i = 0; i < testData.length; i++) {
+
+        String id = testData[i][3].isEmpty()
+                ? generateMessageID()
+                : testData[i][3];
+
+        Message m = new Message(
+                id,
+                i + 1,
+                testData[i][0],
+                testData[i][1]
+        );
+
+        String flag = testData[i][2];
+
+        if (flag.equalsIgnoreCase(FLAG_SENT)) {
+            m.sentMessage(1);
+
+        } else if (flag.equalsIgnoreCase(FLAG_DISREGARD)) {
+            m.sentMessage(2);
+
+        } else {
+            m.sentMessage(3);
         }
     }
 
-    /** Reads storedMessages.json into the storedMessageTexts array (uses org.json). */
+    // Read stored messages from the JSON file
+    try {
+        readStoredMessagesFromJson();
+    } catch (IOException e) {
+        System.out.println("Error reading stored messages: " + e.getMessage());
+    }
+}
+
+    
     public static void readStoredMessagesFromJson() throws IOException {
         storedMessageTexts.clear();
 
@@ -425,25 +457,32 @@ public class Message {
     }
     
     public static String messageReport() {
-        StringBuilder sb = new StringBuilder("===== STORED MESSAGES REPORT =====\n");
-        int count = 0;
 
-        for (int i = 0; i < flagArray.size(); i++) {
-            if (flagArray.get(i).equals(FLAG_STORED)) {
-                count++;
-                sb.append("\nMessage ").append(count).append("\n")
-                  .append("Message ID   : ").append(messageIDArray.get(i)).append("\n")
-                  .append("Message Hash : ").append(messageHashArray.get(i)).append("\n")
-                  .append("Recipient    : ").append(recipientArray.get(i)).append("\n")
-                  .append("Message      : ").append(messageTextArray.get(i)).append("\n");
-            }
-        }
+    StringBuilder sb = new StringBuilder();
+    sb.append("===== STORED MESSAGES REPORT =====\n");
 
-        if (count == 0) {
-            sb.append("There are no stored messages.\n");
+    int count = 0;
+
+    for (int i = 0; i < flagArray.size(); i++) {
+
+        if (flagArray.get(i).equals(FLAG_STORED)) {
+
+            count++;
+
+            sb.append("\nMessage ").append(count).append("\n");
+            sb.append("Message ID: ").append(messageIDArray.get(i)).append("\n");
+            sb.append("Message Hash: ").append(messageHashArray.get(i)).append("\n");
+            sb.append("Recipient: ").append(recipientArray.get(i)).append("\n");
+            sb.append("Message: ").append(messageTextArray.get(i)).append("\n");
         }
-        return sb.toString();
     }
+
+    if (count == 0) {
+        sb.append("There are no stored messages.\n");
+    }
+
+    return sb.toString();
+}
 
     // Getters (copies) so the unit tests can check the arrays
     public static List<String> getSentMessageTexts() { return new ArrayList<>(sentMessageTexts); }
