@@ -5,6 +5,7 @@
 package com.mycompany.chatapp;
 
 import java.util.Scanner;
+import java.util.List;
 /**
  *
  * @author Student
@@ -12,6 +13,8 @@ import java.util.Scanner;
 public class QuickChat {
  
     private static final Scanner in = new Scanner(System.in);
+    
+    private static String loggedInUser = "";
  
     public static void main(String[] args) {
  
@@ -23,6 +26,9 @@ public class QuickChat {
  
         // Welcome message
         System.out.println("Welcome to QuickChat.");
+        
+        // PART 3: populate the arrays from the test data
+        Message.loadTestData();
  
         // The user sets how many messages they want to enter
         int maxMessages = readInt("How many messages do you want to enter? ", 1, 100);
@@ -34,7 +40,9 @@ public class QuickChat {
             System.out.println("\n1) Send Messages");
             System.out.println("2) Show recently sent messages");
             System.out.println("3) Quit");
-            option = readInt("Choose an option (1-3): ", 1, 3);
+            System.out.println("4) Stored Messages");
+            
+            option = readInt("Choose an option (1-4): ", 1, 4);
  
             switch (option) {
                 case 1:
@@ -58,6 +66,9 @@ public class QuickChat {
                     break;
                 case 3:
                     System.out.println("Goodbye!");
+                    break;
+                case 4:                                                      // PART 3
+                    storedMessagesMenu();
                     break;
             }
         } while (option != 3);
@@ -115,6 +126,63 @@ public class QuickChat {
             System.out.println("\n" + msg.details());
         }
     }
+    // PART 3: the Stored Messages menu (options a to f)
+    private static void storedMessagesMenu() {
+        String choice;
+        do {
+            System.out.println("\n==== Stored Messages ====");
+            System.out.println("a) Display the sender and recipient of all stored messages");
+            System.out.println("b) Display the longest message");
+            System.out.println("c) Search for a message ID");
+            System.out.println("d) Search for all messages for a particular recipient");
+            System.out.println("e) Delete a message using the message hash");
+            System.out.println("f) Display a report of all stored messages");
+            System.out.println("g) Back to the main menu");
+            System.out.print("Choose an option (a-g): ");
+            choice = in.nextLine().trim().toLowerCase();
+
+            switch (choice) {
+                case "a":
+                    System.out.println(Message.displaySenderAndRecipientOfStored());
+                    break;
+                case "b":
+                    System.out.println("Longest message: " + Message.getLongestMessage());
+                    break;
+                case "c":
+                    System.out.print("Enter the message ID: ");
+                    String[] found = Message.searchByMessageID(in.nextLine());
+                    if (found == null) {
+                        System.out.println("Message ID not found.");
+                    } else {
+                        System.out.println("Recipient: " + found[0]);
+                        System.out.println("Message: " + found[1]);
+                    }
+                    break;
+                case "d":
+                    System.out.print("Enter the recipient cell number: ");
+                    List<String> results = Message.searchByRecipient(in.nextLine());
+                    if (results.isEmpty()) {
+                        System.out.println("No messages found for that recipient.");
+                    } else {
+                        for (String message : results) {
+                            System.out.println("- " + message);
+                        }
+                    }
+                    break;
+                case "e":
+                    System.out.print("Enter the message hash: ");
+                    System.out.println(Message.deleteByMessageHash(in.nextLine()));
+                    break;
+                case "f":
+                    System.out.println(Message.messageReport());
+                    break;
+                case "g":
+                    break;
+                default:
+                    System.out.println("Invalid option. Enter a letter from a to g.");
+            }
+        } while (!choice.equals("g"));
+    }
  
    
     private static int readInt(String prompt, int min, int max) {
@@ -138,11 +206,21 @@ public class QuickChat {
  
     
     private static boolean loginSuccessful() {
-        System.out.print("Username: ");
-        String user = in.nextLine().trim();
-        System.out.print("Password: ");
-        String pass = in.nextLine().trim();
-        return !user.isEmpty() && !pass.isEmpty();
+    System.out.print("Username: ");
+    String user = in.nextLine().trim();
+
+    System.out.print("Password: ");
+    String pass = in.nextLine().trim();
+
+    boolean ok = !user.isEmpty() && !pass.isEmpty();
+
+    if (ok) {
+        loggedInUser = user;
+        Message.setSender(loggedInUser);
     }
+
+    return ok;
+}
+    
     
 }

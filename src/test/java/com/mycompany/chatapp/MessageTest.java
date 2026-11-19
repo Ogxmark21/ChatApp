@@ -103,4 +103,81 @@ public class MessageTest {
         second.sentMessage(1);
         assertEquals(java.util.List.of("00:0:HITONIGHT", "00:1:HIPAYMENT"), Message.returnAllMessageHashes());
     }
+    
+    // PART 3 unit tests
+    
+    private static final String MSG2 = "Where are you? You are late! I have asked you to be on time.";
+    private static final String MSG5 = "Ok, I am leaving without you.";
+
+    @Test
+    void part3_sentMessagesArray_correctlyPopulated() {
+        Message.loadTestData();
+        assertEquals(java.util.List.of("Did you get the cake?", "It is dinner time!"),
+                Message.getSentMessageTexts());
+    }
+
+    @Test
+    void part3_disregardedAndStoredArrays_correctlyPopulated() {
+        Message.loadTestData();
+        assertEquals(java.util.List.of("Yoohoooo, I am at your gate."), Message.getDisregardedMessageTexts());
+        assertEquals(java.util.List.of(MSG2, MSG5), Message.getStoredMessageTexts()); // read from the JSON file
+    }
+
+    @Test
+    void part3_hashAndIdArrays_containAllMessages() {
+        Message.loadTestData();
+        assertEquals(5, Message.getAllMessageHashes().size());
+        assertEquals(5, Message.getAllMessageIDs().size());
+    }
+
+    @Test
+    void part3_displayLongestMessage() {
+        Message.loadTestData();
+        assertEquals(MSG2, Message.getLongestMessage());
+    }
+
+    @Test
+    void part3_searchForMessageID() {
+        Message.loadTestData();
+        String[] result = Message.searchByMessageID("0838884567");
+        assertNotNull(result);
+        assertEquals("It is dinner time!", result[1]);
+    }
+
+    @Test
+    void part3_searchForMessageID_notFound() {
+        Message.loadTestData();
+        assertNull(Message.searchByMessageID("0000000000"));
+    }
+
+    @Test
+    void part3_searchAllMessagesForRecipient() {
+        Message.loadTestData();
+        assertEquals(java.util.List.of(MSG2, MSG5), Message.searchByRecipient("+27838884567"));
+    }
+
+    @Test
+    void part3_deleteMessageUsingHash() {
+        Message.loadTestData();
+        String hashOfMessage2 = Message.getAllMessageHashes().get(1);
+        assertEquals("Message \"" + MSG2 + "\" successfully deleted.",
+                Message.deleteByMessageHash(hashOfMessage2));
+        assertEquals(java.util.List.of(MSG5), Message.getStoredMessageTexts());
+    }
+
+    @Test
+    void part3_deleteMessage_unknownHash() {
+        Message.loadTestData();
+        assertEquals("Message hash not found.", Message.deleteByMessageHash("XX:9:NOTHING"));
+    }
+
+    @Test
+    void part3_displayReport_showsHashRecipientAndMessage() {
+        Message.loadTestData();
+        String report = Message.messageReport();
+        assertTrue(report.contains(Message.getAllMessageHashes().get(1)));
+        assertTrue(report.contains("+27838884567"));
+        assertTrue(report.contains(MSG2));
+        assertTrue(report.contains(MSG5));
+    }
 }

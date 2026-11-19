@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.mycompany.chatapp.MessageTest" time="0.176" tests="13" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.mycompany.chatapp.MessageTest" time="0.189" tests="23" errors="0" skipped="0" failures="7">
   <properties>
     <property name="java.specification.version" value="25"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\Student\Documents\NetBeansProjects\ChatApp\target\test-classes;C:\Users\Student\Documents\NetBeansProjects\ChatApp\target\classes;C:\Users\Student\.m2\repository\org\junit\jupiter\junit-jupiter\5.11.4\junit-jupiter-5.11.4.jar;C:\Users\Student\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.4\junit-jupiter-api-5.11.4.jar;C:\Users\Student\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Student\.m2\repository\org\junit\platform\junit-platform-commons\1.11.4\junit-platform-commons-1.11.4.jar;C:\Users\Student\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Student\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.4\junit-jupiter-params-5.11.4.jar;C:\Users\Student\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.4\junit-jupiter-engine-5.11.4.jar;C:\Users\Student\.m2\repository\org\junit\platform\junit-platform-engine\1.11.4\junit-platform-engine-1.11.4.jar;"/>
+    <property name="java.class.path" value="C:\Users\Student\Documents\NetBeansProjects\ChatApp\target\test-classes;C:\Users\Student\Documents\NetBeansProjects\ChatApp\target\classes;C:\Users\Student\.m2\repository\org\junit\jupiter\junit-jupiter\5.11.4\junit-jupiter-5.11.4.jar;C:\Users\Student\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.4\junit-jupiter-api-5.11.4.jar;C:\Users\Student\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Student\.m2\repository\org\junit\platform\junit-platform-commons\1.11.4\junit-platform-commons-1.11.4.jar;C:\Users\Student\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Student\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.4\junit-jupiter-params-5.11.4.jar;C:\Users\Student\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.4\junit-jupiter-engine-5.11.4.jar;C:\Users\Student\.m2\repository\org\junit\platform\junit-platform-engine\1.11.4\junit-platform-engine-1.11.4.jar;C:\Users\Student\.m2\repository\org\json\json\20250517\json-20250517.jar;"/>
     <property name="java.vm.vendor" value="Eclipse Adoptium"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -15,10 +15,9 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Apache NetBeans\jdk\bin"/>
-    <property name="sun.java.command" value="C:\Users\Student\AppData\Local\Temp\surefire8454248171702274420\surefirebooter-20261019211849149_3.jar C:\Users\Student\AppData\Local\Temp\surefire8454248171702274420 2026-10-19T21-18-48_761-jvmRun1 surefire-20261019211849149_1tmp surefire_0-20261019211849149_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\Student\AppData\Local\Temp\surefire11902136450091493292\surefirebooter-20261119194036368_3.jar C:\Users\Student\AppData\Local\Temp\surefire11902136450091493292 2026-11-19T19-40-36_162-jvmRun1 surefire-20261119194036368_1tmp surefire_0-20261119194036368_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="test" value="com.mycompany.chatapp.MessageTest"/>
-    <property name="surefire.test.class.path" value="C:\Users\Student\Documents\NetBeansProjects\ChatApp\target\test-classes;C:\Users\Student\Documents\NetBeansProjects\ChatApp\target\classes;C:\Users\Student\.m2\repository\org\junit\jupiter\junit-jupiter\5.11.4\junit-jupiter-5.11.4.jar;C:\Users\Student\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.4\junit-jupiter-api-5.11.4.jar;C:\Users\Student\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Student\.m2\repository\org\junit\platform\junit-platform-commons\1.11.4\junit-platform-commons-1.11.4.jar;C:\Users\Student\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Student\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.4\junit-jupiter-params-5.11.4.jar;C:\Users\Student\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.4\junit-jupiter-engine-5.11.4.jar;C:\Users\Student\.m2\repository\org\junit\platform\junit-platform-engine\1.11.4\junit-platform-engine-1.11.4.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Users\Student\Documents\NetBeansProjects\ChatApp\target\test-classes;C:\Users\Student\Documents\NetBeansProjects\ChatApp\target\classes;C:\Users\Student\.m2\repository\org\junit\jupiter\junit-jupiter\5.11.4\junit-jupiter-5.11.4.jar;C:\Users\Student\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.11.4\junit-jupiter-api-5.11.4.jar;C:\Users\Student\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Student\.m2\repository\org\junit\platform\junit-platform-commons\1.11.4\junit-platform-commons-1.11.4.jar;C:\Users\Student\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Student\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.11.4\junit-jupiter-params-5.11.4.jar;C:\Users\Student\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.11.4\junit-jupiter-engine-5.11.4.jar;C:\Users\Student\.m2\repository\org\junit\platform\junit-platform-engine\1.11.4\junit-platform-engine-1.11.4.jar;C:\Users\Student\.m2\repository\org\json\json\20250517\json-20250517.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\Student"/>
     <property name="user.language" value="en"/>
@@ -31,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Student\AppData\Local\Temp\surefire8454248171702274420\surefirebooter-20261019211849149_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Student\AppData\Local\Temp\surefire11902136450091493292\surefirebooter-20261119194036368_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="25.0.1+8-LTS"/>
@@ -62,17 +61,118 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="69.0"/>
   </properties>
-  <testcase name="sentMessage_disregard" classname="com.mycompany.chatapp.MessageTest" time="0.049"/>
-  <testcase name="messageLength_success" classname="com.mycompany.chatapp.MessageTest" time="0.018"/>
-  <testcase name="sentMessage_send" classname="com.mycompany.chatapp.MessageTest" time="0.006"/>
-  <testcase name="generatedID_isTenDigits" classname="com.mycompany.chatapp.MessageTest" time="0.004"/>
+  <testcase name="sentMessage_disregard" classname="com.mycompany.chatapp.MessageTest" time="0.029">
+    <failure message="expected: &lt;Press 0 to delete the message.&gt; but was: &lt;Message disregarded.&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <Press 0 to delete the message.> but was: <Message disregarded.>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at com.mycompany.chatapp.MessageTest.sentMessage_disregard(MessageTest.java:76)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+]]></failure>
+  </testcase>
+  <testcase name="messageLength_success" classname="com.mycompany.chatapp.MessageTest" time="0.005"/>
+  <testcase name="sentMessage_send" classname="com.mycompany.chatapp.MessageTest" time="0.003"/>
+  <testcase name="generatedID_isTenDigits" classname="com.mycompany.chatapp.MessageTest" time="0.003"/>
   <testcase name="printMessages_listsSent" classname="com.mycompany.chatapp.MessageTest" time="0.005"/>
+  <testcase name="part3_deleteMessage_unknownHash" classname="com.mycompany.chatapp.MessageTest" time="0.022"/>
   <testcase name="messageLength_failure" classname="com.mycompany.chatapp.MessageTest" time="0.003"/>
-  <testcase name="recipient_success" classname="com.mycompany.chatapp.MessageTest" time="0.002"/>
+  <testcase name="recipient_success" classname="com.mycompany.chatapp.MessageTest" time="0.004"/>
+  <testcase name="part3_searchForMessageID" classname="com.mycompany.chatapp.MessageTest" time="0.007"/>
+  <testcase name="part3_hashAndIdArrays_containAllMessages" classname="com.mycompany.chatapp.MessageTest" time="0.01">
+    <failure message="expected: &lt;5&gt; but was: &lt;18&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <5> but was: <18>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
+	at com.mycompany.chatapp.MessageTest.part3_hashAndIdArrays_containAllMessages(MessageTest.java:129)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+]]></failure>
+  </testcase>
   <testcase name="totalMessages_countsOnlySent" classname="com.mycompany.chatapp.MessageTest" time="0.002"/>
-  <testcase name="recipient_failure" classname="com.mycompany.chatapp.MessageTest" time="0.001"/>
+  <testcase name="part3_displayReport_showsHashRecipientAndMessage" classname="com.mycompany.chatapp.MessageTest" time="0.012">
+    <failure message="expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at com.mycompany.chatapp.MessageTest.part3_displayReport_showsHashRecipientAndMessage(MessageTest.java:178)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+]]></failure>
+  </testcase>
+  <testcase name="recipient_failure" classname="com.mycompany.chatapp.MessageTest" time="0.008"/>
   <testcase name="messageHash_correct" classname="com.mycompany.chatapp.MessageTest" time="0.002"/>
-  <testcase name="sentMessage_store" classname="com.mycompany.chatapp.MessageTest" time="0.004"/>
-  <testcase name="messageID_created" classname="com.mycompany.chatapp.MessageTest" time="0.002"/>
-  <testcase name="allMessageHashes_returnedInLoop" classname="com.mycompany.chatapp.MessageTest" time="0.002"/>
+  <testcase name="part3_sentMessagesArray_correctlyPopulated" classname="com.mycompany.chatapp.MessageTest" time="0.007">
+    <failure message="expected: &lt;[Did you get the cake?, It is dinner time!]&gt; but was: &lt;[Hi Mike, can you join us for dinner tonight?, Hi Mike, can you join us for dinner tonight?, Did you get the cake?, It is dinner time!, Did you get the cake?, It is dinner time!, Did you get the cake?, It is dinner time!, Hi Mike, can you join us for dinner tonight?, Did you get the cake?, It is dinner time!, Did you get the cake?, It is dinner time!]&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <[Did you get the cake?, It is dinner time!]> but was: <[Hi Mike, can you join us for dinner tonight?, Hi Mike, can you join us for dinner tonight?, Did you get the cake?, It is dinner time!, Did you get the cake?, It is dinner time!, Did you get the cake?, It is dinner time!, Hi Mike, can you join us for dinner tonight?, Did you get the cake?, It is dinner time!, Did you get the cake?, It is dinner time!]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at com.mycompany.chatapp.MessageTest.part3_sentMessagesArray_correctlyPopulated(MessageTest.java:115)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+]]></failure>
+  </testcase>
+  <testcase name="part3_disregardedAndStoredArrays_correctlyPopulated" classname="com.mycompany.chatapp.MessageTest" time="0.007">
+    <failure message="expected: &lt;[Yoohoooo, I am at your gate.]&gt; but was: &lt;[Hi Keegan, did you receive the payment?, Yoohoooo, I am at your gate., Yoohoooo, I am at your gate., Yoohoooo, I am at your gate., Hi Keegan, did you receive the payment?, Yoohoooo, I am at your gate., Yoohoooo, I am at your gate., Yoohoooo, I am at your gate.]&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <[Yoohoooo, I am at your gate.]> but was: <[Hi Keegan, did you receive the payment?, Yoohoooo, I am at your gate., Yoohoooo, I am at your gate., Yoohoooo, I am at your gate., Hi Keegan, did you receive the payment?, Yoohoooo, I am at your gate., Yoohoooo, I am at your gate., Yoohoooo, I am at your gate.]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at com.mycompany.chatapp.MessageTest.part3_disregardedAndStoredArrays_correctlyPopulated(MessageTest.java:122)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+]]></failure>
+  </testcase>
+  <testcase name="sentMessage_store" classname="com.mycompany.chatapp.MessageTest" time="0.003"/>
+  <testcase name="part3_searchAllMessagesForRecipient" classname="com.mycompany.chatapp.MessageTest" time="0.006">
+    <failure message="expected: &lt;[Where are you? You are late! I have asked you to be on time., Ok, I am leaving without you.]&gt; but was: &lt;[Where are you? You are late! I have asked you to be on time., Ok, I am leaving without you., Where are you? You are late! I have asked you to be on time., Ok, I am leaving without you., Where are you? You are late! I have asked you to be on time., Ok, I am leaving without you., Where are you? You are late! I have asked you to be on time., Ok, I am leaving without you., Where are you? You are late! I have asked you to be on time., Ok, I am leaving without you., Where are you? You are late! I have asked you to be on time., Ok, I am leaving without you., Where are you? You are late! I have asked you to be on time., Ok, I am leaving without you.]&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <[Where are you? You are late! I have asked you to be on time., Ok, I am leaving without you.]> but was: <[Where are you? You are late! I have asked you to be on time., Ok, I am leaving without you., Where are you? You are late! I have asked you to be on time., Ok, I am leaving without you., Where are you? You are late! I have asked you to be on time., Ok, I am leaving without you., Where are you? You are late! I have asked you to be on time., Ok, I am leaving without you., Where are you? You are late! I have asked you to be on time., Ok, I am leaving without you., Where are you? You are late! I have asked you to be on time., Ok, I am leaving without you., Where are you? You are late! I have asked you to be on time., Ok, I am leaving without you.]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at com.mycompany.chatapp.MessageTest.part3_searchAllMessagesForRecipient(MessageTest.java:156)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+]]></failure>
+  </testcase>
+  <testcase name="part3_displayLongestMessage" classname="com.mycompany.chatapp.MessageTest" time="0.004"/>
+  <testcase name="messageID_created" classname="com.mycompany.chatapp.MessageTest" time="0.001"/>
+  <testcase name="allMessageHashes_returnedInLoop" classname="com.mycompany.chatapp.MessageTest" time="0.001"/>
+  <testcase name="part3_deleteMessageUsingHash" classname="com.mycompany.chatapp.MessageTest" time="0.005">
+    <failure message="expected: &lt;Message &quot;Where are you? You are late! I have asked you to be on time.&quot; successfully deleted.&gt; but was: &lt;Message &quot;Hi Mike, can you join us for dinner tonight?&quot; successfully deleted.&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: expected: <Message "Where are you? You are late! I have asked you to be on time." successfully deleted.> but was: <Message "Hi Mike, can you join us for dinner tonight?" successfully deleted.>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at com.mycompany.chatapp.MessageTest.part3_deleteMessageUsingHash(MessageTest.java:163)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+]]></failure>
+  </testcase>
+  <testcase name="part3_searchForMessageID_notFound" classname="com.mycompany.chatapp.MessageTest" time="0.005"/>
 </testsuite>

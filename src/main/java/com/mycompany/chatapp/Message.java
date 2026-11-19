@@ -11,6 +11,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class Message {
 
@@ -89,27 +93,31 @@ public class Message {
     }
 
     public String sentMessage(int choice) {
-        switch (choice) {
-            case 1:
-                sentMessages.add(this);
-                totalSent++;
-                return "Message successfully sent.";
+    switch (choice) {
+        case 1:
+            sentMessages.add(this);
+            totalSent++;
+            recordMessage(FLAG_SENT);
+            return "Message successfully sent.";
 
-            case 2:
-                return "Press 0 to delete the message.";
+        case 2:
+            recordMessage(FLAG_DISREGARD);
+            return "Message disregarded.";
 
-            case 3:
-                try {
-                    storeMessage();
-                    return "Message successfully stored.";
-                } catch (IOException e) {
-                    return "Unable to store message: " + e.getMessage();
-                }
+        case 3:
+            try {
+                storeMessage();
+                recordMessage(FLAG_STORED);
+                readStoredMessagesFromJson();
+                return "Message successfully stored.";
+            } catch (IOException e) {
+                return "Unable to store message: " + e.getMessage();
+            }
 
-            default:
-                return "Invalid option. Please choose 1, 2 or 3.";
-        }
+        default:
+            return "Invalid option. Please choose 1, 2 or 3.";
     }
+}
 
     public static String printMessages() {
         if (sentMessages.isEmpty()) {
@@ -415,6 +423,34 @@ public class Message {
         }
         return "Message \"" + deletedText + "\" successfully deleted.";
     }
+    
+    public static String messageReport() {
+        StringBuilder sb = new StringBuilder("===== STORED MESSAGES REPORT =====\n");
+        int count = 0;
+
+        for (int i = 0; i < flagArray.size(); i++) {
+            if (flagArray.get(i).equals(FLAG_STORED)) {
+                count++;
+                sb.append("\nMessage ").append(count).append("\n")
+                  .append("Message ID   : ").append(messageIDArray.get(i)).append("\n")
+                  .append("Message Hash : ").append(messageHashArray.get(i)).append("\n")
+                  .append("Recipient    : ").append(recipientArray.get(i)).append("\n")
+                  .append("Message      : ").append(messageTextArray.get(i)).append("\n");
+            }
+        }
+
+        if (count == 0) {
+            sb.append("There are no stored messages.\n");
+        }
+        return sb.toString();
+    }
+
+    // Getters (copies) so the unit tests can check the arrays
+    public static List<String> getSentMessageTexts() { return new ArrayList<>(sentMessageTexts); }
+    public static List<String> getDisregardedMessageTexts() { return new ArrayList<>(disregardedMessageTexts); }
+    public static List<String> getStoredMessageTexts() { return new ArrayList<>(storedMessageTexts); }
+    public static List<String> getAllMessageHashes() { return new ArrayList<>(messageHashArray); }
+    public static List<String> getAllMessageIDs() { return new ArrayList<>(messageIDArray); }
 }
 
 
